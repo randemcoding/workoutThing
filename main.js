@@ -170,6 +170,9 @@ window.location.reload();
 
 
 //localStorage.removeItem('workout-thing-active-card')
+const clearCardsButton = document.getElementById('clear-cards-button')
+clearCardsButton.addEventListener('click', function (){
+localStorage.removeItem('workout-thing-save')
+localStorage.removeItem('workout-thing-active-card')
+})
 
-//localStorage.removeItem('workout-thing-save')
-//localStorage.removeItem('workout-thing-active-card')
