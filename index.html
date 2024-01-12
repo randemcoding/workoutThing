@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tally Workout App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script type="module" src="./main.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="main-container">
+      
+      
+    </div>
+    <div id="pop-up-container">
+      <label for="workout-name-input">Workout Name</label>
+      <input type="text" id="workout-name-input">
+      <label for="rep-range-input">Rep-Range</label>
+      <input type="text" id="rep-range-input">
+      <label for="weight-range-input">Weight-Range</label>
+      <input type="text" id="weight-range-input">
+      <label for="set-goal-input">Set Goal</label>
+      <p id="small-text">(number of sets you hope to complete)</p>
+      <input type="text" id="set-goal-input">
+      <button id="save-button">Save</button>
+      <button id="exit-button">X</button>
+    </div>
+    <button id="prev-button" class="bottom-buttons">Prev</button>
+    <button id="next-button" class="bottom-buttons">Next</button>
+    <button id="edit-card-button">Edit Card</button>
+    
+
+    <header>
+        <h2 id="header-text">Workout Thing</h2>
+        <button id="add-a-card-button"><span>+</span><br>Set Tracker Card</button>
+    </header>
+    <button id="clear-cards-button">Clear cards</button>
+</body>
+</html>
