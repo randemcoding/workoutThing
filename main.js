@@ -95,16 +95,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     prevButton.addEventListener('click', function () {
         let activeCard = localStorage.getItem('workout-thing-active-card') || 0;
-        localStorage.setItem('workout-thing-active-card', Math.max(0, activeCard - 1));
+        localStorage.setItem('workout-thing-active-card', Math.max(0, parseInt(activeCard) - 1));
         checkActiveCard();
+        console.log(localStorage.getItem('workout-thing-active-card'));
     });
-
+    
     nextButton.addEventListener('click', function () {
         let activeCard = localStorage.getItem('workout-thing-active-card') || 0;
         let saveArray = JSON.parse(localStorage.getItem('workout-thing-save')) || [];
-        localStorage.setItem('workout-thing-active-card', Math.min(activeCard + 1, saveArray.length - 1));
+        let nextCard = Math.min(parseInt(activeCard) + 1, saveArray.length - 1);
+        localStorage.setItem('workout-thing-active-card', nextCard);
         checkActiveCard();
+        console.log(localStorage.getItem('workout-thing-active-card'));
     });
+    
 
     // Initial check and display
     checkActiveCard();
@@ -169,10 +173,5 @@ window.location.reload();
 
 
 
-//localStorage.removeItem('workout-thing-active-card')
-const clearCardsButton = document.getElementById('clear-cards-button')
-clearCardsButton.addEventListener('click', function (){
-localStorage.removeItem('workout-thing-save')
-localStorage.removeItem('workout-thing-active-card')
-})
+
 
