@@ -183,10 +183,13 @@ deckButtons.forEach(deck => {
 setColors(event.target.id)
     if(deck.id === event.target.id){
         deck.style.color = 'white';
-        deck.style.border = `1px solid rgb(226, 139, 139)`
+        deck.style.boxShadow = `inset 0px 0px 11px var(--custom-color)`;
+        deck.style.borderTop = '1px solid black';
+
     } else {
         deck.style.color = `var(--custom-color)`;
-        deck.style.border = ``
+        deck.style.boxShadow = ``;
+        deck.style.borderTop = '';
     }
 })
 }
@@ -206,10 +209,13 @@ deckButtons.forEach(deck => {
     deck.addEventListener('contextmenu', deleteDecks);
     if(deck.id === activeDeck){
         deck.style.color = 'white';
-        deck.style.border = `1px solid rgb(226, 139, 139)`
+        deck.style.boxShadow = `inset 0px 0px 11px var(--custom-color)`;
+        deck.style.borderTop = '1px solid black';
     } else {
         deck.style.color = `var(--custom-color)`;
-        deck.style.border = ``
+        deck.style.boxShadow = ``;
+        deck.style.borderTop = '';
+
     }
 })
 }
