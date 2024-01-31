@@ -3,8 +3,7 @@ export const existingSave = await getExistingSave()
 
 let activeCard = existingSave.activeCard
 let activeDeck = existingSave.activeDeck
-
- 
+console.log(activeDeck)
 
 export async function fillCard(a, c, d){
   
@@ -156,6 +155,20 @@ fillCard(a, c, d)
 checkButtons()
 
 }
+async function setColors(a){
+    
+    const root = document.documentElement;
+    if (a === 'deckOne'){
+        root.style.setProperty('--custom-color', 'rgb(226, 139, 139)');
+    } else if (a === 'deckTwo'){
+        root.style.setProperty('--custom-color', 'rgb(102, 228, 201)');  
+    } else if (a === 'deckThree'){
+        root.style.setProperty('--custom-color', 'rgb(130, 211, 110)');  
+    } else {
+        root.style.setProperty('--custom-color', 'rgb(161, 113, 223)');  
+    }
+    }
+    setColors(activeDeck)
 export function changeDeck(event){
     console.log(event.target.id)
     let a = 0
@@ -164,14 +177,15 @@ export function changeDeck(event){
     existingSave.activeDeck = c
 localStorage.setItem('workout-thing-save', JSON.stringify(existingSave));
 fillCard(a, c)
+checkButtons()
 const deckButtons = document.querySelectorAll('.decks');
 deckButtons.forEach(deck => {
-    deck.addEventListener('click', changeDeck);
+setColors(event.target.id)
     if(deck.id === event.target.id){
         deck.style.color = 'white';
         deck.style.border = `1px solid rgb(226, 139, 139)`
     } else {
-        deck.style.color = `rgb(226, 139, 139)`;
+        deck.style.color = `var(--custom-color)`;
         deck.style.border = ``
     }
 })
@@ -185,6 +199,7 @@ event.preventDefault();
 localStorage.setItem('workout-thing-save', JSON.stringify(existingSave));
 fillCard(a, c)
 }
+function getDecks(){
 const deckButtons = document.querySelectorAll('.decks');
 deckButtons.forEach(deck => {
     deck.addEventListener('click', changeDeck);
@@ -192,9 +207,13 @@ deckButtons.forEach(deck => {
     if(deck.id === activeDeck){
         deck.style.color = 'white';
         deck.style.border = `1px solid rgb(226, 139, 139)`
+    } else {
+        deck.style.color = `var(--custom-color)`;
+        deck.style.border = ``
     }
 })
-
+}
+getDecks()
 export function detectSwipeLeft() {
     let startX;
     let swipeThreshold = 50;
