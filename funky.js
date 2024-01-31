@@ -176,9 +176,19 @@ deckButtons.forEach(deck => {
     }
 })
 }
+function deleteDecks(event) {
+event.preventDefault();
+    let a = 0
+    let c = event.target.id
+    existingSave.activeCard = a
+    existingSave[c]  = []
+localStorage.setItem('workout-thing-save', JSON.stringify(existingSave));
+fillCard(a, c)
+}
 const deckButtons = document.querySelectorAll('.decks');
 deckButtons.forEach(deck => {
     deck.addEventListener('click', changeDeck);
+    deck.addEventListener('contextmenu', deleteDecks);
     if(deck.id === activeDeck){
         deck.style.color = 'white';
         deck.style.border = `1px solid rgb(226, 139, 139)`
