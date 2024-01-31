@@ -42,6 +42,22 @@ color: rgb(226, 139, 139);
     color:azure;
     top:.2vh;
 }
+#decks-div{
+    display: inline-flex;
+    position: fixed;
+    bottom: 95vh;
+    left: 0vw;
+    z-index:1;
+    width: 100vw;
+    justify-content: center;
+}
+.decks{
+    position: relative;
+    width: 5vw;
+    height: 5vh;
+    background-color: rgb(60, 65, 65);
+color: rgb(226, 139, 139);
+}
 span{
     font-size: 1.8rem;
     line-height: .1;
@@ -102,7 +118,7 @@ input[type="text"]{
     letter-spacing: .1ch;
     margin-bottom: 2vh;
 }
-.card{
+.card {
     display: inline-flex;
     margin-top: 1.5vh;
     background-color: rgb(60, 65, 65);
@@ -117,10 +133,66 @@ input[type="text"]{
     position: relative;
     left: 0vw;
     z-index: 1;
+    animation: none;
 }
+
+@keyframes slideCardLeft {
+    0% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(-150%);
+      opacity: 0;
+    }
+    75% {
+      transform: translateX(150%);
+      opacity: 0;
+    }
+    85%{
+        transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+}
+@keyframes slideCardRight {
+    0% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(150%);
+      opacity: 0;
+    }
+    75% {
+      transform: translateX(-150%);
+      opacity: 0;
+    }
+    85%{
+        transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 .card-text{
     margin-top: 2vh;
     font-size: 1.6rem;
+    animation: fadeIn 1s ease-in-out;
 }
 #sets-completed{
     font-size:19rem;
@@ -205,8 +277,9 @@ input[type="text"]{
 }
 @media screen and (orientation: portrait) {
     .card{
+        top: -20px;
         margin-top: -12px;
-        height: 86vh;
+        height: 80vh;
     }
     #header-text {
       top:-24px;
@@ -236,7 +309,7 @@ input[type="text"]{
     }
     #edit-card-button{
         position: fixed;
-        bottom: 5vh;
+        bottom: 6.5vh;
         left: 10vw;
         width: 100px;
     }
@@ -256,6 +329,24 @@ input[type="text"]{
         left: 37vw;
         width: 100px;
     }
+    #decks-div{
+       bottom: 0vh;
+    }
+    .decks{
+        width: 25vw;
+        background-color: rgb(60, 65, 65);
+    color: rgb(226, 139, 139);
+
+    }
+    #pop-up-container{
+        top:5vh;
+    }
+    #save-button{
+        margin-bottom: 5px;
+    }
+    #exit-button{
+        top: 5.5vh;
+        right: 11vw;
+    }
   }
-  
-  
+ 
